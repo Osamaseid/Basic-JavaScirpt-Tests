@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>Factorials</title>
+    <style>
+        body{
+            background-color: cadetblue;
+        }
+        h1{
+            color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h1>Give Any Number I'll Give YOU Factorial Of That Number</h1>
+<label>Enter A Number:</label>
+<input id="numberInput"/>
+  <button onclick="calculateFactorial()">Calculate Factorial</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateFactorial() {
+      var number =document.getElementById("numberInput").value;
+
+      if (isNaN(number) || number < 0) {
+        document.getElementById("result").textContent = "Invalid input.";
+        return;
+      }
+
+      let factorial = 1;
+      for (let i = 1; i <= number; i++) {
+        factorial *= i;
+      }
+
+      document.getElementById("result").textContent = "Factorial of " + number + " is: " + factorial;
+    }
+  </script>
+
+</body>
