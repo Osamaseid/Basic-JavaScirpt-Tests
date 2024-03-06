@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>form-validation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1 di="reg">REGISTRATION FORM</h1>
+       
+        <div class="container">
+            <form id="form">
+                <label for="username">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+                <!--
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="yor@gmail.com" required>-->
+            
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="password" required>
+                <!--<label for="id number"> Id-number:</label>
+                <input type="id number" id="num" placeholder="ru2323/13" required>
+                -->
+                <button id="submit">submit</button>
+              </form>
+
+             
+             
+    </div>
+        
+    <script>
+        var form = document.getElementById("form");
+        var submitButton = document.getElementById("submit");
+
+        submitButton.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            var nameInput = document.getElementById("name").value;
+            var passwordInput = document.getElementById("password").value;
+            
+            if (name === "" || password === "") {
+                alert("Please fill out all fields.");
+            } else {
+                alert("Form submitted successfully!");
+                
+            }
+        });
+        </script>
+    </body>
+</html>
