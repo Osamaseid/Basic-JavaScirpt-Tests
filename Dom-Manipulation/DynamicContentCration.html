@@ -1,0 +1,75 @@
+
+<!--<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>dynamic content creation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       <style>
+        
+       </style>
+    </head>
+    <body>
+        <div id="dynamic-Content">
+            <p></p>
+        </div>
+        <script>
+            const content = document.getElementById("dynamic-Content");
+
+            function para(){
+                var graph = {
+                    p1: "rfer",
+                    p2: "jjj",
+                    p3: "eude",
+                    p4: "riuei",
+                    p5: "ryfu"
+                };
+
+                return graph;
+            }
+       
+            content.innerHTML = JSON.stringify(para());
+            console.log(content.innerHTML);
+        </script>
+    </body>
+</html>-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dynamic Content Creation</title>
+    <style>
+        body{
+            background-color: cornflowerblue;
+        }
+        #dynamiccontent{
+            color:#fff;
+            text-align: center;
+            font-size: larger;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="dynamicContent"> 
+
+    </div>
+    <script>
+      const dynamicContent = document.getElementById("dynamicContent");
+      const paragraphs = [
+        "first paragraph.",
+        "second paragraph.",
+        "third paragraph.",
+        "fourth paragraph.",
+        "fifth paragraph."];
+
+      for (let i = 0; i < paragraphs.length; i++) {
+
+        const para = document.createElement("p");
+        para.textContent = paragraphs[i];
+        dynamicContent.appendChild(para);
+      }
+    </script>
+  </body>
+</html>
