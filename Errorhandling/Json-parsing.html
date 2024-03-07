@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>JSON-PARSING</h1>
+                
+    </body>
+        <script>
+            const jsonString = "{'name': 'JHON', 'age': 30}";
+
+             try {
+               const parsedObject = JSON.parse(jsonString);
+               console.log(parsedObject);
+             } catch (error) {
+                      console.log("Error: Invalid JSON string!");
+                  }
+
+        </script>
+    
+</html>
+
+
