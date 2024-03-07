@@ -31,17 +31,23 @@
 
                     function division(div1, div2) {
                         if(div2 == 0){
-                            console.log("ERROR");
+                            throw new Error("ERROR OCCUR");
                         }else{
                         var result = div1 / div2;
                         return result;
                         }
                     }
 
-                    var result = division(div1, div2);
-                    console.log(result);
-                });
+                    try {
+                      var result = division(div1, div2);
+                      console.log(result);
+                     } catch (error) {
+                        console.log(error.message);
+                      }
+
+                   });
             });
+      
         </script>
     </body>
 </html>
