@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+          body{
+            background-color: cornflowerblue;
+          }
+        </style>
+    </head>
+    <body>
+        <h1>DIVISION CALCULATOR</h1>
+        <label>Enter the first number:</label>
+        <input type="number" id="div1">
+
+        <label>Enter the second number:</label>
+        <input type="number" id="div2">
+        <button id="btn">Divide</button>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const btn = document.getElementById("btn");
+
+                btn.addEventListener("click", function() {
+                    const div1 = document.getElementById("div1").value;
+                    const div2 = document.getElementById("div2").value;
+
+                    function division(div1, div2) {
+                        if(div2 == 0){
+                            console.log("ERROR");
+                        }else{
+                        var result = div1 / div2;
+                        return result;
+                        }
+                    }
+
+                    var result = division(div1, div2);
+                    console.log(result);
+                });
+            });
+        </script>
+    </body>
+</html>
