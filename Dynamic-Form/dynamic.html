@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        align-items: center;
+        background-color: cornflowerblue;
+      }
+      label {
+        font-size: 14px;
+        padding: 4px;
+      }
+      input {
+        padding: 2px;
+        margin: 4px 0px;
+      }
+      .error-msg {
+        color: red;
+        font-size: 12px;
+      }
+      .btn1 {
+        background-color: blue;
+        color: white;
+        padding: 2px;
+        margin: 2px;
+      }
+      .btn2 {
+        background-color: red;
+        color: white;
+        padding: 2px;
+        margin: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <p id="usernameError" class="error-msg"></p>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" />
+      <p id="passwordError" class="error-msg"></p>
+      <button id="showButton">Show Password</button>
+    </div>
+    <div>
+      <button id="submit">Submit</button>
+    </div>
+    <div style="margin-top: 20px">
+      <table cellspacing="20">
+        <thead>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Action</th>
+        </thead>
+        <tbody id="tableBody">
+          <tr id="1">
+            <td id="1Username">Abdulj</td>
+            <td>pass123</td>
+            <td>
+              <button class="btn1" onclick="editItem('1')">Edit</button>
+              <button class="btn2" onclick="deleteItem('1')">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script>
+      const showButton = document.getElementById("showButton");
+      const passwordInput = document.getElementById("password");
+      const usernameInput = document.getElementById("username");
+      const usernameError = document.getElementById("usernameError");
+      const passwordError = document.getElementById("passwordError");
+      const tableBody = document.getElementById("tableBody");
+      let isValid = false;
+      let id = 2;
+      let isEdit = false;
+      let activeId = 2;
+
+      function deleteItem(id) {
+        const item = document.getElementById(id);
+        item.remove();
+      }
+
+      function editItem(id) {
+        isEdit = true;
+        activeId = id;
+        const itemUser = document.getElementById(`${id}Username`);
+        const itemPass = itemUser.nextElementSibling;
+        usernameInput.value = itemUser.textContent;
+        passwordInput.value = itemPass.textContent;
+      }
+
+      function submitData() {
+        const newRow = document.createElement("tr");
+        newRow.id = id;
+        newRow.innerHTML = `
+          <td id="${id}Username">${usernameInput.value}</td>
+          <td>${passwordInput.value}</td>
+          <td>
+            <button class="btn1" onclick="editItem('${id}')">Edit</button>
+            <button class="btn2" onclick="deleteItem('${id}')">Delete</button>
+          </td>`;
+        tableBody.appendChild(newRow);
+        id++;
+        usernameInput.value = "";
+        passwordInput.value = "";
+      }
+
+      function editSubmitData() {
+        const itemUser = document.getElementById(`${activeId}Username`);
+        const itemPass = itemUser.nextElementSibling;
+        itemUser.textContent = usernameInput.value;
+        itemPass.textContent = passwordInput.value;
+        isEdit = false;
+        activeId = null;
+        usernameInput.value = "";
+        passwordInput.value = "";
+      }
+
+      usernameInput.addEventListener("keyup", () => {
+        if (usernameInput.value.length < 4) {
+          isValid = false;
+          usernameError.innerText = "Username must be at least 4 characters";
+        } else {
+          isValid = true;
+          usernameError.innerText = "";
+        }
+      });
+
+      passwordInput.addEventListener("keyup", () => {
+        if (passwordInput.value.length < 4) {
+          isValid = false;
+          passwordError.innerText = "Password must be at least 4 characters";
+        } else {
+          isValid = true;
+          passwordError.innerText = "";
+        }
+      });
+
+      document.getElementById("submit").addEventListener("click", () => {
+        if (isValid) {
+          if (isEdit) {
+            editSubmitData();
+          } else {
+            submitData();
+          }
+        }
+      });
+
+      showButton.addEventListener("click", () => {
+        if (showButton.innerText === "Show Password") {
+          passwordInput.type = "text";
+          showButton.innerText = "Hide Password";
+        } else {
+          passwordInput.type = "password";
+          showButton.innerText = "Show Password";
+        }
+      });
+    </script>
+  </body>
+</html>
