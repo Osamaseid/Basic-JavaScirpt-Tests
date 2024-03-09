@@ -6,8 +6,16 @@
     <title>Document</title>
     <style>
       body {
+        margin-top: 20vh;
+        justify-content: center;
+        display: flex;
         align-items: center;
         background-color: cornflowerblue;
+      }
+      .form {
+        background-color: rgb(204, 153, 91);
+        padding: 50px 30px;
+        border-radius: 10px;
       }
       label {
         font-size: 14px;
@@ -33,25 +41,41 @@
         padding: 2px;
         margin: 2px;
       }
+      #submit {
+        background-color: cadetblue;
+        color: aliceblue;
+        border-radius: 10px;
+        border-color: black;
+        margin-top: 20px;
+      }
     </style>
   </head>
   <body>
-    <div>
-      <label for="username">Username</label>
-      <input type="text" name="username" id="username" />
-      <p id="usernameError" class="error-msg"></p>
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" name="password" id="password" />
-      <p id="passwordError" class="error-msg"></p>
-      <button id="showButton">Show Password</button>
-    </div>
-    <div>
-      <button id="submit">Submit</button>
+    <div class="form">
+      <h1 style="color: white">login</h1>
+      <div>
+        <label for="username" style="color: white">Username</label>
+        <input type="text" name="username" id="username" placeholder="name" />
+        <p id="usernameError" class="error-msg"></p>
+      </div>
+
+      <div>
+        <label for="password" style="color: white">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="password"
+        />
+        <p id="passwordError" class="error-msg"></p>
+        <button id="showButton">Show Password</button>
+      </div>
+      <div>
+        <button id="submit">Submit</button>
+      </div>
     </div>
     <div style="margin-top: 20px">
-      <table cellspacing="20">
+      <table cellspacing="30">
         <thead>
           <th>Username</th>
           <th>Password</th>
